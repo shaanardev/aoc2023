@@ -91,6 +91,17 @@ impl Solution for Day05 {
     }
 
     fn part_two(parsed_input: &mut Self::ParsedInput) -> String {
-        "".to_string()
+        let mut min = i64::MAX;
+        for seed_range in parsed_input.seeds.chunks(2) {
+            for seed in seed_range[0]..seed_range[0]+seed_range[1] {
+                let mut curr = seed;
+                for map in parsed_input.mappings.iter() {
+                    curr = map.apply_map(curr);
+                }
+                min = min.min(curr);
+            }
+        }
+
+        min.to_string()
     }
 }
