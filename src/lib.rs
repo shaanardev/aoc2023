@@ -4,6 +4,7 @@ pub mod day02;
 pub mod day03;
 pub mod day04;
 pub mod day05;
+pub mod day06;
 
 pub trait Solution {
     type ParsedInput;
@@ -39,6 +40,7 @@ pub fn solve_day(day: &i32) {
         3 => day03::Day03::solve(include_str!("../inputs/3")),
         4 => day04::Day04::solve(include_str!("../inputs/4")),
         5 => day05::Day05::solve(include_str!("../inputs/5")),
+        6 => day06::Day06::solve(include_str!("../inputs/6")),
         _ => panic!("Day not found"),
     };
 }
